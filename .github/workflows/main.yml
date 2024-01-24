@@ -29,5 +29,11 @@ jobs:
       - name: Install streamrip
         run: pip install git+https://github.com/nathom/streamrip.git@dev
 
-      - name: Rip
-        run: rip url ${{ github.event.inputs.url }}
+      - name: config
+        run: rip help config
+
+      - name: config
+        run: rip config
+      
+      #- name: Rip
+        #run: rip url ${{ github.event.inputs.url }}
