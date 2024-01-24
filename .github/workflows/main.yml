@@ -27,10 +27,11 @@ jobs:
           #cache: "pip"
 
       - name: Install streamrip
-        run: pip install streamrip
+        run: pip install git+https://github.com/nathom/streamrip.git@dev
 
       - name: Rip
         run: |
           rip config
           echo "${{ secrets.STREAMRIP_CONFIG }}" | base64 --decode > /home/runner/.config/streamrip/config.toml
           rip url "${{ github.event.inputs.url }}"
+        shell: bash
