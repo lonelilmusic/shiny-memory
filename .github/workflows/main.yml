@@ -33,7 +33,7 @@ jobs:
         run: rip config
 
       - name: cat config
-        run: cat .config/streamrip/config.toml
+        run: cat /home/runner/.config/streamrip/config.toml
       
       #- name: Rip
         #run: rip url ${{ github.event.inputs.url }}
