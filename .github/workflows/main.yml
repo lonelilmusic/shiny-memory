@@ -27,7 +27,7 @@ jobs:
           #cache: "pip"
 
       - name: Install streamrip
-        run: pip install git+https://github.com/nathom/streamrip.git@dev
+        run: pip install streamrip
 
       - name: Rip
         run: |
