@@ -30,7 +30,7 @@ jobs:
         run: pip install git+https://github.com/nathom/streamrip.git@dev
 
       - name: config
-        run: rip help config
+        run: rip --help config
 
       - name: config
         run: rip config
