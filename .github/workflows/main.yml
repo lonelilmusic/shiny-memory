@@ -32,6 +32,7 @@ jobs:
       - name: Rip
         run: |
           rip config
+          cat  /home/runner/.config/streamrip/config.toml
           echo "${{ secrets.STREAMRIP_CONFIG }}" | base64 --decode > /home/runner/.config/streamrip/config.toml
           rip url --help
           rip url "${{ github.event.inputs.url }}"
