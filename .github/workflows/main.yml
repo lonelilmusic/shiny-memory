@@ -33,4 +33,4 @@ jobs:
         run: |
           rip config
           echo "${{ secrets.STREAMRIP_CONFIG }}" | base64 --decode > /home/runner/.config/streamrip/config.toml
-          rip url ${{ github.event.inputs.url }} --ignore-db --no-ansi --no-interaction
+          rip url ${{ github.event.inputs.url }} --no-ansi --no-interaction
