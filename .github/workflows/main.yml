@@ -31,5 +31,5 @@ jobs:
 
       - name: Rip
         run: |
-          echo "${{ secrets.STREAMRIP_CONFIG }}" > .config/streamrip/config.toml
+          echo "${{ secrets.STREAMRIP_CONFIG }}" | base64 --decode > .config/streamrip/config.toml
           rip url ${{ github.event.inputs.url }}
