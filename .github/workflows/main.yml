@@ -1,0 +1,33 @@
+name: Main
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        required: true
+        default: "qobuz"
+        type: choice
+        options:
+          - tidal
+          - deezer
+          - qobuz
+
+jobs:
+  streamrip:
+    if: ${{ github.event.inputs.service == 'tidal' || github.event.inputs.service == 'deezer' || github.event.inputs.service == 'qobuz' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install streamrip
+        run: pip install git+https://github.com/nathom/streamrip.git@dev
+
+      - name: Run streamrip help
+        run: rip --help
