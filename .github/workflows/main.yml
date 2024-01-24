@@ -3,18 +3,18 @@ name: Main
 on:
   workflow_dispatch:
     inputs:
-      service:
+      tool:
         required: true
-        default: "qobuz"
+        default: "streamrip"
         type: choice
         options:
-          - tidal
-          - deezer
-          - qobuz
+          - streamrip
+      url:
+        required: true
 
 jobs:
   streamrip:
-    if: ${{ github.event.inputs.service == 'tidal' || github.event.inputs.service == 'deezer' || github.event.inputs.service == 'qobuz' }}
+    if: ${{ github.event.inputs.tool == 'streamrip' }}
     runs-on: ubuntu-latest
 
     steps:
