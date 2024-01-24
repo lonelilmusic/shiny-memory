@@ -29,11 +29,7 @@ jobs:
       - name: Install streamrip
         run: pip install git+https://github.com/nathom/streamrip.git@dev
 
-      - name: config
-        run: rip config
-
-      - name: cat config
-        run: cat /home/runner/.config/streamrip/config.toml
-      
-      #- name: Rip
-        #run: rip url ${{ github.event.inputs.url }}
+      - name: Rip
+        run: |
+          echo "${{ secrets.STREAMRIP_CONFIG }}" > /home/runner/.config/streamrip/config.toml
+          rip url ${{ github.event.inputs.url }}
